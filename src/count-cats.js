@@ -18,7 +18,9 @@ function countCats(matrix) {
   let result = 0;
   console.log(matrix)
   for (let i = 0; i < matrix.length; i += 1) {
-    if (matrix[i].includes('^^')) { result += 1}
+    if (matrix[i].includes('^^')) { 
+      result += matrix[i].filter((a) => a === "^^").length
+    }
   }
   return result;
 }

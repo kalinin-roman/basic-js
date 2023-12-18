@@ -12,6 +12,18 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function getSeason(date) {
+  if (!date) { return 'Unable to determine the time of year!'; }
+  
+  if (!(date instanceof Date)) { throw new Error('Invalid date!'); }
+  
+  try {
+    date.getTime();
+  } catch (e) {
+    throw new Error('Invalid date!')
+  }
+
+
+
   const a = date;
   const b = a.toString().split(' ')[1];
   if (b === 'Dec') return 'winter';
